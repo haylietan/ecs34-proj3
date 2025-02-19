@@ -1,13 +1,17 @@
-#ifndef DATASINK_H
-#define DATASINK_H
+#ifndef STRINGDATASINK_H
+#define STRINGDATASINK_H
 
-#include <vector>
+#include "DataSink.h"
+#include <string>
 
-class CDataSink{
+class CStringDataSink : public CDataSink{
+    private:
+        std::string DString;
     public:
-        virtual ~CDataSink(){};
-        virtual bool Put(const char &ch) noexcept = 0;
-        virtual bool Write(const std::vector<char> &buf) noexcept = 0;
+        const std::string &String() const;
+
+        bool Put(const char &ch) noexcept override;
+        bool Write(const std::vector<char> &buf) noexcept override;
 };
 
 #endif
